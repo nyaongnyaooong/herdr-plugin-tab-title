@@ -13,6 +13,12 @@ herdr plugin link .
 herdr plugin action invoke watch-start --plugin tab-title   # 이후엔 서버 시작 시 자동 실행
 ```
 
+## Windows
+
+Windows에서는 Python 3.9+와 PowerShell만 사용하며 Bash나 jq는 필요하지 않다. `HERDR_PYTHON`으로 Python 경로를 지정할 수 있다. 플러그인 시작 시 자동 실행되며, 수동으로 시작하려면 `herdr plugin action invoke watch-start-windows --plugin tab-title`을 실행한다. Windows 상태 파일은 Herdr가 제공하는 플러그인 상태 경로(기본 `%LOCALAPPDATA%\herdr\plugins\tab-title`)에 저장된다.
+
+`python scripts/test_windows.py`로 제목 단축, 포커스 우선순위, 사용자 이름 변경 및 기본 이름 복원을 검증한다.
+
 ## 설정 (환경 변수)
 
 - `TAB_TITLE_MAX` — 붙일 제목 글자 수 (기본 12)

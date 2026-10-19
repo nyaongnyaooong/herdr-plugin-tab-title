@@ -3,12 +3,24 @@ name = "Tab Title"
 version = "0.1.0"
 min_herdr_version = "0.9.0"
 description = "Appends the running Claude session title to each tab name, as \"name-title…\"."
-platforms = ["linux", "macos"]
+platforms = ["linux", "macos", "windows"]
 
 [[startup]]
 command = ["sh", "scripts/watch-start.sh"]
+platforms = ["linux", "macos"]
 
 [[actions]]
 id = "watch-start"
 title = "Restart tab title sync"
 command = ["sh", "scripts/watch-start.sh"]
+platforms = ["linux", "macos"]
+
+[[startup]]
+command = ["powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "scripts/run-windows.ps1", "watch-start"]
+platforms = ["windows"]
+
+[[actions]]
+id = "watch-start-windows"
+title = "Restart tab title sync"
+command = ["powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "scripts/run-windows.ps1", "watch-start"]
+platforms = ["windows"]
