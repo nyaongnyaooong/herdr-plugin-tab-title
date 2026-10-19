@@ -1,0 +1,14 @@
+id = "tab-title"
+name = "Tab Title"
+version = "0.1.0"
+min_herdr_version = "0.9.0"
+description = "Appends the running Claude session title to each tab name, as \"name-title…\"."
+platforms = ["linux", "macos"]
+
+[[startup]]
+command = ["sh", "scripts/watch-start.sh"]
+
+[[actions]]
+id = "watch-start"
+title = "Restart tab title sync"
+command = ["sh", "scripts/watch-start.sh"]
